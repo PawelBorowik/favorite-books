@@ -8,12 +8,9 @@ import './App.css';
 function App() {
 
   
-const [books, setBooks]= useState([{author:"a", title: "b"}, {author:"d", title: "b"}])
+const [books, setBooks]= useState([{author:"Andrzej Sapkowski", title: "Ostatnie życzenie"}, {author:"Janusz Meissner", title: "Pilot gwiaździestego znaku"}])
 
-// setBooks("a")
 
-// let books= ["a", "b"]
-// books.map( book=> <p>{book}</p>)
 
 
   return (
