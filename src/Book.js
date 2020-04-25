@@ -1,16 +1,15 @@
 import React from 'react';
 
-import './App.css';
 
-function Book() {
-  return (
-    <div>
-        <h2>{title}</h2>
-        <h3>{author}</h3>
+
+
+function Book({books}) {
 
     
-    </div>
-  );
+return books.map( book=><> <p>autor {book.author}</p><p>tytuł {book.title}</p></> )
+  
+
+
 }
 
 export default Book;

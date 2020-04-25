@@ -7,8 +7,8 @@ import './App.css';
 function AddBook() {
 
     
-const[author, setAuthor]= useState("")
-const[title, setTitle]= useState("")
+const [author, setAuthor]= useState("")
+const [title, setTitle]= useState("")
 const [literaryGenre, setLliteraryGenre]= useState("")
 const [cover, setCover]= useState("")
 
@@ -29,7 +29,7 @@ const handleSelectLiteraryGenre=e=>{
     setLliteraryGenre(e.target.value)
 }
 const handleAddBookCover=e=>{
-   console.log(e.target.files[0])
+  
     setCover( URL.createObjectURL(e.target.files[0]))
 }
 useEffect(()=>{
@@ -75,7 +75,7 @@ useEffect(()=>{
             </label>
             <br />
             <input type="file" onChange={handleAddBookCover}/>
-            {/* <input type="file" value={cover} name="submit" onLoad={handleAddBookCover}>Dodaj okładkę</input> */}
+           
             <br/>
             <button>Dodaj</button>
         </form>
