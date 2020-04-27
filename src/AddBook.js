@@ -48,6 +48,7 @@ const handleAddBook=(e)=>{
      setAuthor("")
      setLliteraryGenre("")
      setTitle("")
+     setCover("")
      setCoverName("")
 }
 
@@ -97,7 +98,7 @@ const handleAddBook=(e)=>{
             
             
             <input type="file" id="files" onChange={handleAddBookCover}/>
-            <label htmlFor="files">{coverName ? coverName.name: <span>wybierz okładkę</span>}</label>
+  <label className="Cover" htmlFor="files">{coverName ? <span className="name-file">{coverName.name}</span>: <span>wybierz okładkę</span>}</label>
            
             <br/>
             <button onClick={handleAddBook}>Dodaj</button>
