@@ -1,40 +1,60 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 
 import './App.css';
 
 
-function AddBook() {
+function AddBook({books, setBooks}) {
 
     
 const [author, setAuthor]= useState("")
 const [title, setTitle]= useState("")
 const [literaryGenre, setLliteraryGenre]= useState("")
 const [cover, setCover]= useState("")
+const[coverName, setCoverName]=useState("")
 
 const literaryGenreList= ["kryminał", "historyczny", "fantazy", "przygodowy", "inny"]
 
 const optionGenre= literaryGenreList.map( item=> <option key={item}>{item}</option>)
 
 const handleAddAuthor=e=>{
-    e.preventDefault()
+    
     setAuthor(e.target.value)
 }
 const handleAddTitle=e=>{
-    e.preventDefault()
+  
     setTitle(e.target.value)
 }
 const handleSelectLiteraryGenre=e=>{
-    e.preventDefault()
+   
     setLliteraryGenre(e.target.value)
 }
 const handleAddBookCover=e=>{
   
     setCover( URL.createObjectURL(e.target.files[0]))
+    setCoverName( e.target.files[0])
 }
-useEffect(()=>{
-    console.log("effect sie odpala")
-},[title])
+const handleAddBook=(e)=>{
+    e.preventDefault()
+    e.stopPropagation()
+    const addedBook={
+        author,
+        title,
+        literaryGenre,
+        cover,
+    }
+     const newBooksList=[ ...books, addedBook]
+     setBooks(newBooksList)
+     setAuthor("")
+     setLliteraryGenre("")
+     setTitle("")
+     setCoverName("")
+}
+
+
+// useEffect(()=>{
+//     console.log("effect sie odpala")
+// },[title])
 
 
   return (
@@ -74,13 +94,16 @@ useEffect(()=>{
                 </select>      
             </label>
             <br />
-            <input type="file" onChange={handleAddBookCover}/>
+            
+            
+            <input type="file" id="files" onChange={handleAddBookCover}/>
+            <label htmlFor="files">{coverName ? coverName.name: <span>wybierz okładkę</span>}</label>
            
             <br/>
-            <button>Dodaj</button>
+            <button onClick={handleAddBook}>Dodaj</button>
         </form>
      
-      <img src={cover} alt=""/>
+      
     </div>
   );
 }
