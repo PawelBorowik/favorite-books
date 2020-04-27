@@ -8,7 +8,8 @@ import './App.css';
 function App() {
 
   
-const [books, setBooks]= useState([{author:"Andrzej Sapkowski", title: "Ostatnie życzenie"}, {author:"Janusz Meissner", title: "Pilot gwiaździestego znaku"}])
+// const [books, setBooks]= useState([{author:"Andrzej Sapkowski", title: "Ostatnie życzenie"}, {author:"Janusz Meissner", title: "Pilot gwiaździestego znaku"}])
+const [books, setBooks]= useState([])
 
 
 
@@ -17,7 +18,7 @@ const [books, setBooks]= useState([{author:"Andrzej Sapkowski", title: "Ostatnie
     <div className="App">
       <header className="App-header">
       <h1>Ulubione Ksiązki</h1>
-      <AddBook/>
+      <AddBook books={books} setBooks={setBooks}/>
       <Book books={books}/>
   
       </header>
