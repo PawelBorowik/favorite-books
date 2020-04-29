@@ -14,10 +14,13 @@ export default (state = initialState, action) =>{
             }
         }
         default{
-            return{
-            ...state
-        };
+            return{...state};
 
         }
     }
+}
+
+// fuknkcja do dodawania  ksiazek
+export const  addBook = book => dispatch =>{
+    dispatch({ type:ADD_BOOK, payload:book})
 }
