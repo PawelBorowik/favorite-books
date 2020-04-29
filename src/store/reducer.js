@@ -13,7 +13,7 @@ export default (state = initialState, action) =>{
                 books: newBooks
             }
         }
-        default{
+        default:{
             return{...state};
 
         }
