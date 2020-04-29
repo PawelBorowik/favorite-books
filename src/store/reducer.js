@@ -1,11 +1,23 @@
+export const ADD_BOOK= "ADD_BOOK"
+
 const initialState ={
     books:[]
-}
+};
 
-(state = initialState, action) =>{
+export default (state = initialState, action) =>{
     switch(action.type){
-        case"ADD_BOOK":{
+        case ADD_BOOK:{
             const newBooks = [...state.books, action.payload]
+            return{
+                ...state,
+                books: newBooks
+            }
+        }
+        default{
+            return{
+            ...state
+        };
+
         }
     }
 }
