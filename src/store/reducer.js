@@ -20,7 +20,7 @@ export default (state = initialState, action) =>{
     }
 }
 
-// fuknkcja do dodawania  ksiazek
+// funkcja do dodawania  ksiazek
 export const  addBook = book => dispatch =>{
     dispatch({ type:ADD_BOOK, payload:book})
 }
