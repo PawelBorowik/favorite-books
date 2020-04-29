@@ -6,7 +6,7 @@ import {ADD_BOOK} from "./store/reducer"
 import './App.css';
 
 
-function AddBook({books, setBooks}) {
+function AddBook() {
 
     const dispatch= useDispatch()
 
@@ -47,9 +47,9 @@ const handleAddBook=(e)=>{
         literaryGenre,
         cover,
     }
-     const newBooksList=[ ...books, addedBook]
+    //  const newBooksList=[ ...books, addedBook]
     //  setBooks(newBooksList) przed dodaniem reduxa
-    dispatch({type: ADD_BOOK, payload: newBooksList})
+    dispatch({type: ADD_BOOK, payload: addedBook})
      setAuthor("")
      setLliteraryGenre("")
      setTitle("")

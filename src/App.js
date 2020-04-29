@@ -18,7 +18,8 @@ const books= useSelector(state => state.books)
     <div className="App">
       <header className="App-header">
       <h1>Ulubione Ksiązki</h1>
-      <AddBook books={books} setBooks={()=>{}}/>
+      {/* /<AddBook books={books} setBooks={setBooks}/> */}
+      <AddBook />
       <Book books={books}/>
   
       </header>
