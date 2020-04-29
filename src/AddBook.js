@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
+import {useDispatch} from "react-redux"
+import {ADD_BOOK} from "./store/reducer"
 
 
 import './App.css';
 
 
 function AddBook({books, setBooks}) {
+
+    const dispatch= useDispatch()
 
     
 const [author, setAuthor]= useState("")
@@ -44,7 +48,8 @@ const handleAddBook=(e)=>{
         cover,
     }
      const newBooksList=[ ...books, addedBook]
-     setBooks(newBooksList)
+    //  setBooks(newBooksList) przed dodaniem reduxa
+    dispatch({type: ADD_BOOK, payload: newBooksList})
      setAuthor("")
      setLliteraryGenre("")
      setTitle("")
