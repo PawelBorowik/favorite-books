@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {useDispatch} from "react-redux"
 import {ADD_BOOK} from "./store/reducer"
+import styled from "styled-components"
 
 
 import './App.css';
@@ -58,28 +59,77 @@ const handleAddBook=(e)=>{
 }
 
 
-// useEffect(()=>{
-//     console.log("effect sie odpala")
-// },[title])
+
+ //style
+ const Form = styled.div`
+ display:flex;
+ flex-direction: column;
+  padding: 10px;
+`
+
+const Input = styled.input`
+  padding: 0.5em;
+  margin: 0.5em 1em;
+  color: black;
+  background: #ddd;
+  border: none;
+  border-radius: 3px;
+`;
+const Select = styled.select`
+  padding: 0.5em;
+  margin: 0.5em 2em ;
+  color: black;
+  background: #ddd;
+  border: none;
+  border-radius: 3px;
+`;
+ const Find = styled.input`
+ display: none;
+ `
+ const Cover = styled.label`
+  margin-top: 10px;
+    border: 2px solid #34495e;
+     text-align: center;
+     width: 300px; 
+     height: 36px; 
+     border-radius: 3px;  
+     cursor: pointer;
+  
+  &:hover{
+    background-color: #ddd;
+    color:black;
+  }
+`
+
+
+  
+  
+   
 
 
   return (
     <div>
         <form action="">
+
+            <Form>
+           
             <label htmlFor="author">
                 Autor
-            <input 
+               
+            <Input
                     id ="author"
                     type="text" 
                     value={author} 
                     placeholder="autor" 
                     onChange={handleAddAuthor}
                     onBlur={handleAddAuthor}/>
+                   
             </label>
-          <br />
+            
+         
           <label htmlFor="title">
                 Tytuł
-            <input 
+            <Input
                     id ="title"
                     type="text" 
                     value={title} 
@@ -87,25 +137,25 @@ const handleAddBook=(e)=>{
                     onChange={handleAddTitle}
                     onBlur={handleAddTitle}/>
             </label>
-          <br />
+      
             <label htmlFor="literaryGenre">
                 Gatunek
-                <select  
+                <Select>
                     id="literaryGenre"
                     value={literaryGenre}
                     onChange={handleSelectLiteraryGenre}>
                     Gatunek Literacki
                     <option value="">wybierz</option>
                     {optionGenre}
-                </select>      
+                    </Select>    
             </label>
-            <br />
+          
             
             
-            <input type="file" id="files" onChange={handleAddBookCover}/>
-  <label className="Cover" htmlFor="files">{coverName ? <span className="name-file">{coverName.name}</span>: <span>wybierz okładkę</span>}</label>
+            <Find type="file" id="files" onChange={handleAddBookCover}/>
+  <Cover htmlFor="files">{coverName ? <span className="name-file">{coverName.name}</span>: <span>wybierz okładkę</span>}</Cover>
            
-            <br/>
+  </Form>
             <button onClick={handleAddBook}>Dodaj</button>
         </form>
      
@@ -115,3 +165,12 @@ const handleAddBook=(e)=>{
 }
 
 export default AddBook;
+
+
+
+
+
+
+// useEffect(()=>{
+//     console.log("effect sie odpala")
+// },[title])
