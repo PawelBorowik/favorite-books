@@ -12,6 +12,12 @@ function App() {
 // const [books, setBooks]= useState([]) przed dodaniem reduxa
 const books= useSelector(state => state.books)
 
+const Wrapper = styled.div`
+  padding: 4em;
+  background: papayawhip;
+  min-height: 100vh;
+`;
+
 const Title = styled.h1`
   font-size: 1.7em;
   text-align: center;
@@ -19,26 +25,23 @@ const Title = styled.h1`
 `;
 
 
-const Wrapper = styled.header`
-  padding: 4em;
-  background: papayawhip;
-`;
 
 
 
 
   return (
-    <div className="App">
+   
       <Wrapper>
         <Title>
               Ulubione Ksiązki
         </Title>
             
-      </Wrapper>
+     
       {/* /<AddBook books={books} setBooks={setBooks}/> */}
       <AddBook />
       <Book books={books}/>
-    </div>
+      </Wrapper>
+ 
   );
 }
 

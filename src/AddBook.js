@@ -11,21 +11,21 @@ function AddBook() {
     const dispatch= useDispatch()
 
     
-const [author, setAuthor]= useState("")
-const [title, setTitle]= useState("")
-const [literaryGenre, setLliteraryGenre]= useState("")
-const [cover, setCover]= useState("")
-const[coverName, setCoverName]=useState("")
+    const [author, setAuthor]= useState("")
+    const [title, setTitle]= useState("")
+    const [literaryGenre, setLliteraryGenre]= useState("")
+    const [cover, setCover]= useState("")
+    const[coverName, setCoverName]=useState("")
 
-const literaryGenreList= ["kryminał", "historyczny", "fantazy", "przygodowy", "inny"]
+    const literaryGenreList= ["kryminał", "historyczny", "fantazy", "przygodowy", "inny"]
 
-const optionGenre= literaryGenreList.map( item=> <option key={item}>{item}</option>)
+    const optionGenre= literaryGenreList.map( item=> <option key={item}>{item}</option>)
 
-const handleAddAuthor=e=>{
+    const handleAddAuthor=e=>{
     
     setAuthor(e.target.value)
-}
-const handleAddTitle=e=>{
+    }
+    const handleAddTitle=e=>{
   
     setTitle(e.target.value)
 }
